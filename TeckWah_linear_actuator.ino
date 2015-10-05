@@ -34,11 +34,16 @@ void loop() {
     incomingbyte = Serial.read();
 
     if (incomingbyte == '0') {
-      analogWrite(motor1_pwmPin, 0);
+      
+      analogWrite(motor1_pwmPin, 0);//stop
+      
     } else if (incomingbyte == '1') {
+      
       analogWrite(motor1_pwmPin, 255); //max speed
       digitalWrite(motor1_dirPin, HIGH);
+      
     } else if (incomingbyte == '2') {
+      
       analogWrite(motor1_pwmPin, 255); //max speed
       digitalWrite(motor1_dirPin, LOW);
     }
