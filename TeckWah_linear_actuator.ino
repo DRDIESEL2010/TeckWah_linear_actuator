@@ -32,16 +32,24 @@ void loop() {
     if (incomingbyte == '0') {
       
       analogWrite(motor1_pwmPin, 0);//stop
+      analogWrite(motor2_pwmPin, 0);//stop
+      Serial.println("stopping");
       
     } else if (incomingbyte == '1') {
       
       analogWrite(motor1_pwmPin, 255); //max speed
       digitalWrite(motor1_dirPin, HIGH); //extend
+      analogWrite(motor2_pwmPin, 255); //max speed
+      digitalWrite(motor2_dirPin, HIGH); //extend
+      Serial.println("extending");
       
     } else if (incomingbyte == '2') {
       
       analogWrite(motor1_pwmPin, 255); //max speed
       digitalWrite(motor1_dirPin, LOW); //retract
+      analogWrite(motor2_pwmPin, 255); //max speed
+      digitalWrite(motor2_dirPin, LOW); //retract
+      Serial.println("retracting");
     }
   }
   
